@@ -59,7 +59,8 @@ pipeline {
 
                 # Ensure the correct branch is checked out
                 git checkout main
-
+                git pull origin main
+                   
                 # Replace the image tag in deployment.yml
                 BUILD_NUMBER=${BUILD_NUMBER}
                 sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
